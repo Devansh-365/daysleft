@@ -17,41 +17,26 @@ jobs:
           xcode-version: latest-stable
       
       - name: Build
-        run: xcodebuild -scheme "Days Left" -configuration Release -destination 'platform=macOS' build
+        run: swift build
       
       - name: Test
-        run: xcodebuild -scheme "Days Left" -destination 'platform=macOS' test
+        run: swift test
       
       - name: Archive
         run: |
-          xcodebuild -scheme "Days Left" \
-            -configuration Release \
-            -archivePath build/DaysLeft.xcarchive \
-            archive
+          mkdir -p build
+          swift build -c release
       
-      - name: Export
+      - name: Create Release Asset
         run: |
-          xcodebuild -exportArchive \
-            -archivePath build/DaysLeft.xcarchive \
-            -exportPath build/export \
-            -exportOptionsPlist resources/export-options.plist
-      
-      - name: Create DMG
-        run: |
-          brew install create-dmg
-          create-dmg \
-            --volname "Days Left" \
-            --window-pos 200 120 \
-            --window-size 600 400 \
-            --icon-size 100 \
-            --app-drop-link 450 185 \
-            "build/DaysLeft-${{ github.ref_name }}.dmg" \
-            "build/export/Days Left.app"
+          mkdir -p build/export
+          cp -r .build/release/days-left.app build/export/ 2>/dev/null || cp .build/release/days-left build/export/
+          cd build/export && zip -r ../DaysLeft-${{ github.ref_name }}.zip .
       
       - name: Upload to Release
         uses: softprops/action-gh-release@v1
         with:
-          files: build/DaysLeft-${{ github.ref_name }}.dmg
+          files: build/DaysLeft-${{ github.ref_name }}.zip
           generate_release_notes: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
