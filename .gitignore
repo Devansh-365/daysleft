@@ -13,3 +13,4 @@ xcuserdata
 Package.resolved
 .build/
 .vercel/
+.vercel
