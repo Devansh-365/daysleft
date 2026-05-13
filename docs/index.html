@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Days Left — Days remaining in the year, always in your menu bar</title>
+    <meta name="description" content="A minimal macOS menu bar app that shows exactly how many days remain in the year, month, and week. No windows, no distractions.">
+    <meta name="author" content="Devansh Tiwari">
+    <link rel="canonical" href="https://devansh-365.github.io/macapp/">
+    <meta property="og:title" content="Days Left — macOS Menu Bar Countdown">
+    <meta property="og:description" content="See how many days remain in the year, month, and week — right from your menu bar.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://devansh-365.github.io/macapp/">
+    <meta property="og:image" content="https://devansh-365.github.io/macapp/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="style.css">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Days Left",
+      "operatingSystem": "macOS 13+",
+      "applicationCategory": "UtilitiesApplication",
+      "description": "A minimal macOS menu bar utility that shows exactly how many days remain in the year, month, and week.",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "author": {
+        "@type": "Person",
+        "name": "Devansh Tiwari"
+      }
+    }
+    </script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="/" class="nav-logo">Days Left</a>
+            <div class="nav-links">
+                <a href="#features">Features</a>
+                <a href="#faq">FAQ</a>
+                <a href="https://github.com/Devansh-365/macapp">GitHub</a>
+                <a href="https://github.com/Devansh-365/macapp/releases/latest" class="nav-cta">Download</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <header class="hero">
+        <div class="hero-inner">
+            <h1>Days Left</h1>
+            <p class="tagline">Days remaining this year in your menu bar. Calm, focused, always visible.</p>
+            
+            <div class="badge">Available on macOS 13+</div>
+            
+            <div class="cta-group">
+                <a href="https://github.com/Devansh-365/macapp/releases/latest/download/days-left.zip" class="cta-primary">Download for macOS</a>
+                <a href="https://github.com/Devansh-365/macapp/releases/latest" class="cta-secondary">View all versions</a>
+            </div>
+            
+            <p class="meta">Free · Open Source · Native SwiftUI</p>
+        </div>
+    </header>
+
+    <!-- Menu Bar Preview -->
+    <section class="preview">
+        <div class="preview-inner">
+            <div class="menubar">
+                <div class="menubar-left">
+                    <span class="menubar-app">Finder</span>
+                    <span class="menubar-app">File</span>
+                    <span class="menubar-app">Edit</span>
+                    <span class="menubar-app">View</span>
+                </div>
+                <div class="menubar-right">
+                    <span class="menubar-icon">WiFi</span>
+                    <span class="menubar-icon">Battery</span>
+                    <span class="menubar-item">47d</span>
+                </div>
+            </div>
+            <p class="preview-caption">The number lives in your menu bar — visible on every workspace, every app, every moment.</p>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section id="features" class="features">
+        <div class="features-inner">
+            <h2>What it does</h2>
+            <p>Days Left is a minimal macOS menu bar utility. It shows exactly how many days remain in the year, month, and week — always visible, never intrusive.</p>
+            
+            <div class="feature-list">
+                <div class="feature">
+                    <h3>Year countdown</h3>
+                    <p>See days remaining in the current year at a glance. The number updates automatically at midnight.</p>
+                </div>
+                <div class="feature">
+                    <h3>Month & week</h3>
+                    <p>Click the menu bar icon to reveal month and week breakdown alongside the year count.</p>
+                </div>
+                <div class="feature">
+                    <h3>Launch at login</h3>
+                    <p>Enable in Preferences and Days Left starts automatically when you log in. Set it and forget it.</p>
+                </div>
+                <div class="feature">
+                    <h3>Sleep aware</h3>
+                    <p>Wakes up correctly after sleep. No stale numbers, no manual refresh needed.</p>
+                </div>
+                <div class="feature">
+                    <h3>Native macOS</h3>
+                    <p>Built with SwiftUI. No Electron, no web views, no bloat. A real Mac app that feels like part of the system.</p>
+                </div>
+                <div class="feature">
+                    <h3>Zero distractions</h3>
+                    <p>No notifications. No sounds. No Dock icon. Just a number in your menu bar that quietly does its job.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dropdown Preview -->
+    <section class="dropdown-preview">
+        <div class="dropdown-preview-inner">
+            <div class="dropdown-mockup">
+                <div class="dropdown-header">Days Left</div>
+                <div class="dropdown-row">
+                    <span class="dropdown-label">Year</span>
+                    <span class="dropdown-value">47 days remaining</span>
+                </div>
+                <div class="dropdown-row">
+                    <span class="dropdown-label">Month</span>
+                    <span class="dropdown-value">3 days remaining</span>
+                </div>
+                <div class="dropdown-row">
+                    <span class="dropdown-label">Week</span>
+                    <span class="dropdown-value">4 days remaining</span>
+                </div>
+                <div class="dropdown-divider"></div>
+                <div class="dropdown-actions">
+                    <span>Preferences...</span>
+                    <span>Quit</span>
+                </div>
+            </div>
+            <p class="preview-caption">Click to see the full breakdown. Clean, minimal, no clutter.</p>
+        </div>
+    </section>
+
+    <!-- Download -->
+    <section class="download">
+        <div class="download-inner">
+            <h2>Download</h2>
+            <p class="download-price">Free · Open Source</p>
+            <div class="cta-group">
+                <a href="https://github.com/Devansh-365/macapp/releases/latest/download/days-left.zip" class="cta-primary">Download for macOS</a>
+                <a href="https://github.com/Devansh-365/macapp" class="cta-secondary">View on GitHub</a>
+            </div>
+            <p class="download-meta">macOS 13 Ventura or later · Apple Silicon or Intel · 3.2 MB</p>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="faq">
+        <div class="faq-inner">
+            <h2>FAQ</h2>
+            
+            <div class="faq-list">
+                <details class="faq-item">
+                    <summary>How is this different from Day Progress?</summary>
+                    <p>Day Progress shows how much of the current <em>day</em> has elapsed. Days Left shows how many days remain in the <em>year</em>, plus month and week breakdown. Different time scale, different mental model.</p>
+                </details>
+                
+                <details class="faq-item">
+                    <summary>Does it work with Bartender or other menu bar managers?</summary>
+                    <p>Yes. Days Left uses the standard macOS menu bar API and works with Bartender, Ice, Hidden Bar, and any other menu bar organizer.</p>
+                </details>
+                
+                <details class="faq-item">
+                    <summary>How does it handle leap years?</summary>
+                    <p>It uses the system calendar automatically. In a leap year like 2024, December 31 shows 1 day remaining. In a normal year, it shows 0.</p>
+                </details>
+                
+                <details class="faq-item">
+                    <summary>Does it use the network?</summary>
+                    <p>No network access at all. Days Left reads your system clock and calculates locally. No analytics, no tracking, no telemetry.</p>
+                </details>
+                
+                <details class="faq-item">
+                    <summary>Can I show percentage instead of days?</summary>
+                    <p>Not currently. The app is intentionally minimal — days remaining only. If there's enough demand, a percentage option may be added.</p>
+                </details>
+                
+                <details class="faq-item">
+                    <summary>Is it native or Electron?</summary>
+                    <p>100% native. Built with SwiftUI, compiled for Apple Silicon and Intel. It launches instantly and uses negligible CPU and memory.</p>
+                </details>
+                
+                <details class="faq-item">
+                    <summary>How do I uninstall?</summary>
+                    <p>Quit the app (click the menu bar icon and select "Quit"), then drag the app from Applications to Trash. That's it. No leftover files.</p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <p>Built with SwiftUI for macOS. <a href="https://github.com/Devansh-365/macapp">Open source on GitHub</a>.</p>
+            <p class="footer-links">
+                <a href="https://github.com/Devansh-365/macapp/releases">Releases</a>
+                <a href="https://github.com/Devansh-365/macapp/issues">Issues</a>
+                <a href="https://github.com/Devansh-365/macapp/blob/main/LICENSE">License</a>
+            </p>
+        </div>
+    </footer>
+</body>
+</html>
