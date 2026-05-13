@@ -12,3 +12,4 @@ xcuserdata
 .env
 Package.resolved
 .build/
+.vercel/
