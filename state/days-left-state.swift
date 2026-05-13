@@ -1,10 +1,9 @@
-import SwiftUI
+import Foundation
+import Combine
 
-@Observable
-@MainActor
-final class DaysLeftState {
-    var dateInfo: DateInfo
-    var displayText: String
+final class DaysLeftState: ObservableObject {
+    @Published var dateInfo: DateInfo
+    @Published var displayText: String
     
     init(dateInfo: DateInfo = DateCalculationService.calculateAll(from: Date())) {
         self.dateInfo = dateInfo

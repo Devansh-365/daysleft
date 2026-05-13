@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct PopoverView: View {
-    @Environment(DaysLeftState.self) private var state
+    @EnvironmentObject var state: DaysLeftState
     
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
