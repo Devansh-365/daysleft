@@ -1,0 +1,14 @@
+.DS_Store
+/build/
+DerivedData
+*.app
+*.dSYM
+*.ipa
+*.dmg
+*.zip
+xcuserdata
+.idea/
+*.log
+.env
+Package.resolved
+.build/
