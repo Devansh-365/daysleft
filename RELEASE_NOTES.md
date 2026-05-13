@@ -18,11 +18,16 @@ Days Left is a minimal macOS menu bar utility that shows exactly how many days r
 
 ### Install Instructions
 
-1. Download `DaysLeft-v1.0.0.dmg`
-2. Open the DMG
-3. Drag "Days Left" to Applications
-4. Launch from Applications
-5. The app will appear in your menu bar
+**Option 1: Build from Source (Recommended for now)**
+1. Clone this repo
+2. Open Xcode → Create New Project → macOS App
+3. Import all Swift files from `app/`, `state/`, `views/`, `services/`, `models/`, `utilities/`
+4. Add `ServiceManagement` framework
+5. Set bundle identifier and signing team
+6. Build and run
+
+**Option 2: Download (Coming Soon)**
+- A signed `.app` bundle will be attached here once built and notarized
 
 ### Uninstall
 
@@ -35,13 +40,6 @@ Days Left is a minimal macOS menu bar utility that shows exactly how many days r
 - No Dock icon — it lives only in the menu bar
 - No onboarding or first-launch prompts
 
-### Checksums
-
-```
-SHA256: (to be filled during release)
-```
-
 ### Links
 
-- [App Store](https://apps.apple.com) (coming soon)
-- [Source Code](https://github.com/yourusername/days-left)
+- [Source Code](https://github.com/Devansh-365/macapp)
