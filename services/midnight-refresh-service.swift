@@ -1,7 +1,6 @@
-import Foundation
+import SwiftUI
 import Combine
 
-@MainActor
 final class MidnightRefreshService {
     private var timer: AnyCancellable?
     private var wakeObserver: NSObjectProtocol?
