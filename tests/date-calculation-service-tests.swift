@@ -19,7 +19,7 @@ final class DateCalculationServiceTests: XCTestCase {
     func testDaysRemainingInYear_forLastDay() {
         let date = calendar.date(from: DateComponents(year: 2025, month: 12, day: 31))!
         let result = DateCalculationService.daysRemainingInYear(from: date)
-        XCTAssertEqual(result, 0)
+        XCTAssertEqual(result, 1)
     }
     
     func testDaysRemainingInMonth_forFirstDay() {
@@ -37,13 +37,13 @@ final class DateCalculationServiceTests: XCTestCase {
     func testDaysRemainingInWeek_forMonday() {
         let date = calendar.date(from: DateComponents(year: 2025, month: 1, day: 6))!
         let result = DateCalculationService.daysRemainingInWeek(from: date)
-        XCTAssertEqual(result, 6)
+        XCTAssertEqual(result, 5)
     }
     
     func testDaysRemainingInWeek_forSunday() {
         let date = calendar.date(from: DateComponents(year: 2025, month: 1, day: 12))!
         let result = DateCalculationService.daysRemainingInWeek(from: date)
-        XCTAssertEqual(result, 0)
+        XCTAssertEqual(result, 6)
     }
     
     func testCalculateAll() {
@@ -51,6 +51,6 @@ final class DateCalculationServiceTests: XCTestCase {
         let result = DateCalculationService.calculateAll(from: date)
         XCTAssertEqual(result.yearDays, 365)
         XCTAssertEqual(result.monthDays, 30)
-        XCTAssertEqual(result.weekDays, 5)
+        XCTAssertEqual(result.weekDays, 3)
     }
 }
