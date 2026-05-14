@@ -1,74 +1,69 @@
 <div align="center">
 
+<br>
+
 <h1>Days Left</h1>
 
-<p>A minimal macOS menu bar utility that shows exactly how many days remain in the year, month, and week.</p>
-
-<p>
-  <img src="public/screenshot.jpg" width="680" alt="Days Left app showing days remaining in the menu bar with dropdown breakdown">
-</p>
-
-<p>
-  <a href="../../releases/latest">
-    <img src="https://img.shields.io/badge/Download-Latest_Release-0066cc?style=for-the-badge&logo=apple&logoColor=white" alt="Download Latest Release">
-  </a>
-  <a href="../../stargazers">
-    <img src="https://img.shields.io/github/stars/Devansh-365/macapp?style=for-the-badge&color=f1c40f&logo=github" alt="GitHub Stars">
-  </a>
-</p>
-
-<p>
-  <img src="https://img.shields.io/badge/macOS-13%2B-0066cc?logo=apple&logoColor=white" alt="macOS 13+">
-  <img src="https://img.shields.io/badge/Swift-6-orange?logo=swift&logoColor=white" alt="Swift 6">
-  <img src="https://img.shields.io/badge/License-MIT-green" alt="MIT License">
-</p>
-
-</div>
+<p>Minimal macOS menu bar utility. Know exactly how many days remain in the year, always.</p>
 
 <br>
 
-## What It Does
-
-Days Left sits quietly in your menu bar and tells you one thing: how many days are left in the year. Click it for the full breakdown (year, month, week). That is it. No notifications. No sounds. No clutter.
-
-**Why use it?**
-
-- **Visual reminder** of time passing. Seeing "232d" every day changes how you think about your week.
-- **Minimal** by design. One number in your menu bar. One click for details.
-- **Native macOS** app. Built with SwiftUI, not Electron. Uses barely any CPU or memory.
+<img src="public/screenshot.jpg" width="720" alt="Days Left menu bar app showing days remaining with dropdown">
 
 <br>
-
-## Download
+<br>
 
 <a href="../../releases/latest">
-  <img src="https://img.shields.io/badge/Download_Latest_Release-0066cc?style=for-the-badge&logo=apple&logoColor=white" alt="Download Latest Release">
+  <img src="https://img.shields.io/badge/Download_for_macOS-0066cc?style=for-the-badge&logo=apple&logoColor=white" alt="Download for macOS">
+</a>
+&nbsp;
+<a href="../../stargazers">
+  <img src="https://img.shields.io/badge/Star_on_GitHub-f1c40f?style=for-the-badge&logo=github&logoColor=black" alt="Star on GitHub">
 </a>
 
 <br>
 <br>
 
-### Install
+<img src="https://img.shields.io/badge/macOS-13%2B-0066cc?logo=apple&logoColor=white" alt="macOS 13+">
+<img src="https://img.shields.io/badge/Swift-6-F05138?logo=swift&logoColor=white" alt="Swift 6">
+<img src="https://img.shields.io/badge/SwiftUI-0066cc?logo=swift&logoColor=white" alt="SwiftUI">
+<img src="https://img.shields.io/badge/Xcode-16-147EFB?logo=xcode&logoColor=white" alt="Xcode 16">
+<img src="https://img.shields.io/badge/License-MIT-green" alt="MIT License">
 
-1. Download `DaysLeft-v1.0.0.dmg` from the latest release
-2. Open the DMG
-3. Drag **Days Left** to Applications
-4. Launch from Applications
+</div>
 
-**Note:** The app is not signed with an Apple Developer certificate. On first launch, right-click the app and select **Open** to bypass Gatekeeper.
+<br>
+<br>
+
+## The Problem
+
+You open your calendar when you want to know how many days are left in the year. Or month. Or week. That takes clicks, mental math, and interruption. Days Left removes all of that. One number lives in your menu bar. Click it if you want the breakdown.
+
+**What you get:**
+
+- Days left in the year, visible at all times
+- Click for month and week breakdown
+- Updates automatically at midnight
+- Wakes correctly after sleep
+- No Dock icon, no notifications, no noise
 
 <br>
 
-## Features
+## Install
 
-| Feature | Description |
-|---------|-------------|
-| Always Visible | Days remaining shown directly in your menu bar (e.g., "232d") |
-| Detailed Breakdown | Click to reveal year, month, and week remaining |
-| Auto Refresh | Updates at midnight automatically |
-| Sleep Aware | Recalculates immediately after sleep or wake |
-| Launch at Login | Optional, enabled by default |
-| Zero Distractions | No Dock icon, no notifications, no sounds |
+```bash
+# Download the latest DMG from releases
+# Open it, drag to Applications, launch
+```
+
+Or manually:
+
+1. Download `DaysLeft-v1.0.0.dmg` from [latest release](../../releases/latest)
+2. Open the DMG
+3. Drag **Days Left** into Applications
+4. Launch
+
+**First launch:** Right-click the app and select **Open** to bypass Gatekeeper (the app is not yet signed with an Apple Developer certificate).
 
 <br>
 
@@ -81,48 +76,25 @@ Days Left sits quietly in your menu bar and tells you one thing: how many days a
 
 ## Development
 
-### Build
-
 ```bash
-make build
+make build    # Build the app
+make test     # Run unit tests
+make dmg      # Create release DMG
 ```
-
-### Test
-
-```bash
-make test
-```
-
-### Create Release DMG
-
-```bash
-make dmg
-```
-
-<br>
-
-## Tech Stack
-
-<p>
-  <img src="https://img.shields.io/badge/Swift-6-F05138?logo=swift&logoColor=white&style=flat-square" alt="Swift 6">
-  <img src="https://img.shields.io/badge/SwiftUI-0066cc?logo=swift&logoColor=white&style=flat-square" alt="SwiftUI">
-  <img src="https://img.shields.io/badge/Xcode-16-147EFB?logo=xcode&logoColor=white&style=flat-square" alt="Xcode 16">
-  <img src="https://img.shields.io/badge/macOS-13%2B-0066cc?logo=apple&logoColor=white&style=flat-square" alt="macOS 13+">
-</p>
 
 <br>
 
 ## Architecture
 
-```
-app/         Entry point with MenuBarExtra
-state/       Observable app state (days-left-state)
-views/       SwiftUI views (popover, settings)
-services/    Business logic (date calc, refresh, login)
-models/      Data models (date-info)
-utilities/   Helpers and formatters
-public/      Screenshots and assets
-```
+| Layer | Responsibility |
+|-------|---------------|
+| `app/` | Entry point with MenuBarExtra |
+| `state/` | Observable app state |
+| `views/` | SwiftUI views (popover, settings) |
+| `services/` | Date calculation, refresh, launch at login |
+| `models/` | Date info data models |
+| `utilities/` | Helpers and formatters |
+| `public/` | Screenshots and assets |
 
 <br>
 
@@ -134,12 +106,16 @@ MIT
 
 <div align="center">
 
-<p>If you find this useful, consider giving it a star. It helps others find it.</p>
+<p>Built with SwiftUI for macOS. <a href="../../stargazers">Star this repo</a> if you find it useful.</p>
 
-<p>
-  <a href="../../stargazers">
-    <img src="https://img.shields.io/github/stars/Devansh-365/macapp?style=social" alt="Star on GitHub">
-  </a>
-</p>
+<br>
+
+<a href="../../releases/latest">Download</a>
+&nbsp;|&nbsp;
+<a href="../../stargazers">Star</a>
+&nbsp;|&nbsp;
+<a href="../../issues">Issues</a>
+&nbsp;|&nbsp;
+<a href="../../blob/main/LICENSE">License</a>
 
 </div>
