@@ -4,8 +4,12 @@ import SwiftUI
 struct DaysLeftApp: App {
     @StateObject private var appState = DaysLeftState()
     
+    init() {
+        appState.startRefreshService()
+    }
+    
     var body: some Scene {
-        MenuBarExtra("Days Left", systemImage: "calendar") {
+        MenuBarExtra(appState.displayText) {
             PopoverView()
                 .environmentObject(appState)
         }
