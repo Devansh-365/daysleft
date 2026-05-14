@@ -1,26 +1,46 @@
+<div align="center">
+
 # Days Left
 
 A minimal macOS menu bar utility that shows exactly how many days remain in the year, month, and week.
 
+<p align="center">
+  <img src="public/screenshot.jpg" width="600" alt="Days Left screenshot showing 232 days remaining with dropdown breakdown">
+</p>
+
+<p>
+  <a href="../../releases/latest"><strong>Download</strong></a> ·
+  <a href="#features">Features</a> ·
+  <a href="#install">Install</a> ·
+  <a href="#development">Development</a>
+</p>
+
+<p>
+  <img src="https://img.shields.io/badge/macOS-13%2B-blue?logo=apple" alt="macOS 13+">
+  <img src="https://img.shields.io/badge/Swift-6-orange?logo=swift" alt="Swift 6">
+  <img src="https://img.shields.io/badge/License-MIT-green" alt="MIT License">
+</p>
+
+</div>
+
+---
+
 ## Features
 
-- **Menu Bar Display** — Shows days remaining in the year (e.g., "47d")
-- **Dropdown Breakdown** — Click to see year, month, and week remaining
-- **Launch at Login** — Optional, enabled by default
+- **Always Visible** — Days remaining displayed directly in your menu bar (e.g., "232d")
+- **Detailed Breakdown** — Click to reveal year, month, and week remaining
 - **Auto Refresh** — Updates at midnight automatically
 - **Sleep Aware** — Recalculates immediately after sleep/wake
+- **Launch at Login** — Optional, enabled by default
 - **Zero Distractions** — No Dock icon, no notifications, no sounds
 
-## Download
+## Install
 
-Download the latest version from the [Releases](../../releases) page.
+1. Download the latest `DaysLeft-v1.0.0.dmg` from [Releases](../../releases/latest)
+2. Open the DMG and drag **Days Left** to Applications
+3. Launch from Applications
 
-### Install
-
-1. Download `DaysLeft-v1.0.0.dmg`
-2. Open the DMG
-3. Drag "Days Left" to Applications
-4. Launch from Applications
+> **Note:** The app is not signed with an Apple Developer certificate. On first launch, right-click the app → **Open** to bypass Gatekeeper.
 
 ## Requirements
 
@@ -46,10 +66,10 @@ make build
 make test
 ```
 
-### Release
+### Create Release DMG
 
 ```bash
-make release
+make dmg
 ```
 
 ## Architecture
@@ -68,7 +88,7 @@ resources/   Assets & config
 
 - Swift 6 with strict concurrency
 - SwiftUI MenuBarExtra
-- @Observable for state management
+- ObservableObject for state management
 - SMAppService for launch at login
 - Timer + NSWorkspace for refresh
 - XCTest for unit testing

@@ -17,3 +17,4 @@ Package.resolved
 site/
 vercel.json
 package.json
+.omc/
