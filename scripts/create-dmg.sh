@@ -2,12 +2,14 @@
 set -e
 
 APP_NAME="Days Left"
+VOL_NAME="DaysLeft"
 BUNDLE_ID="com.devansh.daysleft"
 VERSION="1.0.0"
 BUILD_DIR=".build/release"
-APP_BUNDLE="${BUILD_DIR}/Days Left.app"
+APP_BUNDLE="${BUILD_DIR}/${APP_NAME}.app"
 DMG_NAME="DaysLeft-v${VERSION}.dmg"
 TMP_DMG="tmp-${DMG_NAME}"
+MOUNT_DIR=$(mktemp -d)
 
 echo "Building Days Left v${VERSION}..."
 
@@ -49,17 +51,18 @@ cat > "${APP_BUNDLE}/Contents/Info.plist" <<EOF
 EOF
 
 echo "Creating DMG..."
-hdiutil create -size 20m -fs HFS+ -volname "${APP_NAME}" -o "${TMP_DMG}" >/dev/null
+rm -f "${TMP_DMG}"
+hdiutil create -size 20m -fs HFS+ -volname "${VOL_NAME}" -o "${TMP_DMG}" >/dev/null
 
-MOUNT_POINT=$(hdiutil attach "${TMP_DMG}" | grep Volumes | awk '{print $3}')
-cp -R "${APP_BUNDLE}" "${MOUNT_POINT}/"
-ln -s /Applications "${MOUNT_POINT}/Applications"
-hdiutil detach "${MOUNT_POINT}" >/dev/null
+hdiutil attach "${TMP_DMG}" -mountpoint "${MOUNT_DIR}" >/dev/null
+cp -R "${APP_BUNDLE}" "${MOUNT_DIR}/"
+ln -s /Applications "${MOUNT_DIR}/Applications"
+hdiutil detach "${MOUNT_DIR}" >/dev/null
 
 hdiutil convert "${TMP_DMG}" -format UDZO -o "${DMG_NAME}" >/dev/null
 
 rm -f "${TMP_DMG}"
-rm -rf "${APP_BUNDLE}"
+rm -rf "${APP_BUNDLE}" "${MOUNT_DIR}"
 
 echo ""
 echo "Created ${DMG_NAME}"

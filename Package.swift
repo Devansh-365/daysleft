@@ -11,7 +11,7 @@ let package = Package(
         .executableTarget(
             name: "days-left",
             path: ".",
-            exclude: ["tests", "resources", "docs", "research", ".gitignore", "README.md", "CHANGELOG.md", "RELEASE_NOTES.md", "Makefile", ".github"]
+            exclude: ["tests", "resources", "site", "research", "scripts", ".gitignore", "README.md", "CHANGELOG.md", "RELEASE_NOTES.md", "Makefile", ".github", "package.json", "vercel.json"]
         ),
         .testTarget(
             name: "days-left-tests",
