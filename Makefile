@@ -20,3 +20,6 @@ clean:
 release:
 	swift build -c release
 	@echo "Release $(VERSION) built at $(BUILD_DIR)/release/days-left"
+
+dmg:
+	@scripts/create-dmg.sh
