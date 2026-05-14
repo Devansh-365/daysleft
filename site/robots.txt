@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://devansh-365.github.io/macapp/sitemap.xml

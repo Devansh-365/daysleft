@@ -14,3 +14,6 @@ Package.resolved
 .build/
 .vercel/
 .vercel
+site/
+vercel.json
+package.json

@@ -1,7 +1,0 @@
-{
-  "name": "macapp-site",
-  "private": true,
-  "scripts": {
-    "build": "mkdir -p dist && cp -r site/* dist/"
-  }
-}
