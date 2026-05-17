@@ -5,21 +5,19 @@ final class DaysLeftState: ObservableObject {
     @Published var dateInfo: DateInfo
     @Published var displayText: String
     private var refreshService: MidnightRefreshService?
-    
-    init(dateInfo: DateInfo = DateCalculationService.calculateAll(from: Date())) {
-        self.dateInfo = dateInfo
-        self.displayText = "\(dateInfo.yearDays)d"
+
+    init() {
+        let info = DateCalculationService.calculateAll(from: Date())
+        self.dateInfo = info
+        self.displayText = "\(info.yearDays)d"
         self.refreshService = nil
-    }
-    
-    func startRefreshService() {
-        guard refreshService == nil else { return }
-        refreshService = MidnightRefreshService { [weak self] in
+        let service = MidnightRefreshService { [weak self] in
             self?.refresh()
         }
-        refreshService?.start()
+        service.start()
+        self.refreshService = service
     }
-    
+
     func refresh() {
         let newInfo = DateCalculationService.calculateAll(from: Date())
         dateInfo = newInfo
