@@ -58,7 +58,7 @@ You open your calendar when you want to know how many days are left in the year.
 
 Or manually:
 
-1. Download `DaysLeft-v1.0.0.dmg` from [latest release](../../releases/latest)
+1. Download `DaysLeft-v1.1.0.dmg` from [latest release](../../releases/latest)
 2. Open the DMG
 3. Drag **Days Left** into Applications
 4. Launch

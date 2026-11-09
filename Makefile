@@ -1,6 +1,6 @@
 APP_NAME = Days Left
 BUNDLE_ID = com.yourname.daysleft
-VERSION = 1.0.0
+VERSION = 1.1.0
 BUILD_DIR = .build
 
 .PHONY: all build test clean release

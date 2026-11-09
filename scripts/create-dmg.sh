@@ -4,22 +4,23 @@ set -e
 APP_NAME="Days Left"
 VOL_NAME="DaysLeft"
 BUNDLE_ID="com.devansh.daysleft"
-VERSION="1.0.0"
-BUILD_DIR=".build/release"
+VERSION="1.1.0"
+BUILD_DIR=".build/dmg"
 APP_BUNDLE="${BUILD_DIR}/${APP_NAME}.app"
+UNIVERSAL_BINARY=".build/apple/Products/Release/days-left"
 DMG_NAME="DaysLeft-v${VERSION}.dmg"
 TMP_DMG="tmp-${DMG_NAME}"
 MOUNT_DIR=$(mktemp -d)
 
-echo "Building Days Left v${VERSION}..."
+echo "Building Days Left v${VERSION} (universal: Apple Silicon + Intel)..."
 
 rm -rf "${BUILD_DIR}"
-swift build -c release
+swift build -c release --arch arm64 --arch x86_64
 
 echo "Creating app bundle..."
 mkdir -p "${APP_BUNDLE}/Contents/MacOS"
 mkdir -p "${APP_BUNDLE}/Contents/Resources"
-cp "${BUILD_DIR}/days-left" "${APP_BUNDLE}/Contents/MacOS/"
+cp "${UNIVERSAL_BINARY}" "${APP_BUNDLE}/Contents/MacOS/"
 
 cat > "${APP_BUNDLE}/Contents/Info.plist" <<EOF
 <?xml version="1.0" encoding="UTF-8"?>
@@ -41,7 +42,7 @@ cat > "${APP_BUNDLE}/Contents/Info.plist" <<EOF
     <key>CFBundleShortVersionString</key>
     <string>${VERSION}</string>
     <key>CFBundleVersion</key>
-    <string>1</string>
+    <string>2</string>
     <key>LSMinimumSystemVersion</key>
     <string>13.0</string>
     <key>LSUIElement</key>
