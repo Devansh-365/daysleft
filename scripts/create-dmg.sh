@@ -50,8 +50,14 @@ cat > "${APP_BUNDLE}/Contents/Info.plist" <<EOF
 </plist>
 EOF
 
+# Sign the whole bundle (ad-hoc). The linker only signs the bare binary, which leaves
+# Info.plist unbound; SMAppService (launch at login) needs a signed .app bundle.
+echo "Signing app bundle (ad-hoc)..."
+codesign --force --sign - "${APP_BUNDLE}"
+codesign --verify --strict "${APP_BUNDLE}"
+
 echo "Creating DMG..."
-rm -f "${TMP_DMG}"
+rm -f "${TMP_DMG}" "${DMG_NAME}"  # hdiutil won't overwrite an existing DMG
 hdiutil create -size 20m -fs HFS+ -volname "${VOL_NAME}" -o "${TMP_DMG}" >/dev/null
 
 hdiutil attach "${TMP_DMG}" -mountpoint "${MOUNT_DIR}" >/dev/null
